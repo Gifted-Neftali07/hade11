@@ -20,12 +20,12 @@ import {LogComponent} from './pages/auth/log/log.component';
 import { SigComponent } from './pages/auth/sig/sig.component';
 
 export const routes: Routes = [
-    {path: 'servicios', component:ServiciosComponent},
-    {path: 'vehiculos',component: VehiculosComponent},
+    {path: 'servicios',canActivate: [authGuard], component:ServiciosComponent},
+    {path: 'vehiculos',canActivate: [authGuard],component: VehiculosComponent},
     {path: 'vehiculo/:id', component: UnvehiculoComponent},
     {path : 'buscador/:nombreh', component: SearchComponent},
     {path: 'contacto', component: ContactoComponent},
-    {path: 'acerca', component: AcercaDeComponent},
+    {path: 'acerca',canActivate: [authGuard], component: AcercaDeComponent},
     {path: 'reserva/:id',canActivate: [authGuard], component: ReservarComponent},
     {path: 'preguntas', component: PreguntasComponent},
     {path: 'home', component: HomeComponent},
@@ -46,10 +46,10 @@ export const routes: Routes = [
         path: 'auth',
        
         children: [
-          {
-            path: 'sign-up',component:SignUpComponent
+        /*  {
+            path: 'sig',component:SignUpComponent
            // loadComponent: () => import('./pages/auth/sign-up/sign-up.component'),
-          },
+          },*/
           {
             path: 'login',component:LogInComponent
             //loadComponent: () => import('./pages/auth/log-in/log-in.component'),

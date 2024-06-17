@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet,Router, Event, NavigationStart, NavigationEnd } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -12,4 +12,17 @@ import { FooterComponent } from './footer/footer.component';
 })
 export class AppComponent {
   title = 'proyecto2';
+  loading = false;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationStart) {
+        this.loading = true;
+      }
+
+      if (event instanceof NavigationEnd) {
+        this.loading = false;
+      }
+    });
+  }
 }

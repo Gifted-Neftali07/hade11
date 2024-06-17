@@ -21,7 +21,7 @@ export const VEHICULOS: Vehiculos[] = [
     "cantidad_maletas": 2,
     "aire_acondicionado": "A/A",
     "mantenimiento": "Al día",
-    "imagen": "https://todorenting.es/wp-content/uploads/2023/06/kia-stonic-Blanco.png",
+    "imagen": "https://cdn.wheel-size.com/automobile/body/kia-stonic-2017-2021-1668147161.4829836.jpg",
     "tipo": "Economico",
     "precio": 3450
   },

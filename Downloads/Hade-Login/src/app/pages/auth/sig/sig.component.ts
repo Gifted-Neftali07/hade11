@@ -28,6 +28,7 @@ interface SignUpForm {
   email: FormControl<string>;
   password: FormControl<string>;
   confirmPassword: FormControl<string>;
+  
 }
 
 @Component({

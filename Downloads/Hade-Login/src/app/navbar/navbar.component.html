@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="https://www.instagram.com/p/C8Dka3kN9pV/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA%3D%3D" style="width: 100px;" alt="Logo">
+        <img src="https://scontent.fagu3-1.fna.fbcdn.net/v/t39.30808-6/448287036_122178310796035530_4208982018311952363_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=K6uCbOumctcQ7kNvgFvDskW&_nc_ht=scontent.fagu3-1.fna&oh=00_AYDV-Wo_MlrA5RgEwygxFFIIH1mIbdpnTMkpnxP4z0CzXQ&oe=66726236" style="width: 100px;" alt="Logo">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,10 +34,15 @@
             <input class="form-control navbar-search-input" type="search" placeholder="Buscar" #buscarTexto>
             <button class="btn btn-outline-success my-2 my-sm-0 navbar-search-button" type="button" (click)="buscarUnVehiculo(buscarTexto.value)">Buscador</button>
           </form>
-          <button class="btn btn-outline-secondary ms-2" (click)="openLoginDialog()">Log in</button>
+          <ng-container *ngIf="!(isLoggedIn$ | async)">
+            <button class="btn btn-outline-secondary ms-2" (click)="openLoginDialog()">Log in</button>
+            <button class="btn btn-outline-primary ms-2" (click)="signUp()">Sign up</button>
+          </ng-container>
           
-          <button class="btn btn-outline-primary ms-2" routerLink="/sig">Sign up</button>
-          <button mat-flat-button (click)="logOut()">Log out</button>
+          <button *ngIf="isLoggedIn$ | async" mat-flat-button (click)="logOut()">Log out</button>
+      
+
+          
       </div>
     </div>
   </nav>

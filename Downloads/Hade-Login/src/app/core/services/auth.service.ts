@@ -14,6 +14,7 @@ import {
   signInWithPhoneNumber,
   ConfirmationResult
 } from '@angular/fire/auth';
+import { BehaviorSubject } from 'rxjs';
 
 export interface Credential {
   email: string;
@@ -27,8 +28,10 @@ export class AuthService {
   private auth: Auth = inject(Auth);
   private reCaptchaVerifier: RecaptchaVerifier | undefined;
   private confirmationResult: ConfirmationResult | undefined;
- 
+  private loggedIn = new BehaviorSubject<boolean>(false);
+
   readonly authState$ = authState(this.auth);
+  readonly isLoggedIn$ = this.loggedIn.asObservable();
 
   // Email and Password Auth
   signUpWithEmailAndPassword(credential: Credential): Promise<UserCredential> {
@@ -40,16 +43,18 @@ export class AuthService {
     );
   }
 
-  logInWithEmailAndPassword(credential: Credential) {
-    return signInWithEmailAndPassword(
+  async logInWithEmailAndPassword(credential: Credential): Promise<void> {
+    const userCredential = await signInWithEmailAndPassword(
       this.auth,
       credential.email,
       credential.password
     );
+    this.loggedIn.next(true);
   }
 
-  logOut(): Promise<void> {
-    return signOut(this.auth);
+  async logOut(): Promise<void> {
+    await signOut(this.auth);
+    this.loggedIn.next(false);
   }
 
   // Providers
@@ -66,6 +71,7 @@ export class AuthService {
   async callPopUp(provider: AuthProvider): Promise<UserCredential> {
     try {
       const result = await signInWithPopup(this.auth, provider);
+      this.loggedIn.next(true);
       return result;
     } catch (error: any) {
       throw error;
@@ -111,7 +117,10 @@ export class AuthService {
     }
 
     return this.confirmationResult.confirm(code)
-      .then(() => console.log('Phone number confirmed successfully'))
+      .then(() => {
+        console.log('Phone number confirmed successfully');
+        this.loggedIn.next(true);
+      })
       .catch(error => {
         console.error('Error confirming phone number', error);
         throw error;

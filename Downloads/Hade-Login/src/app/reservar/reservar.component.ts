@@ -67,4 +67,8 @@ export class ReservarComponent {
     this.ngOnInit;
       Swal.fire("Cliente guardado exitosamente");
 }
+
+
 }
+
+

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -17,6 +17,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService, Credential } from '../../../core/services/auth.service';
 import { ButtonProviders } from '../components/button-providers/button-providers.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 interface LogInForm {
@@ -53,7 +55,13 @@ export class LogComponent implements OnInit {
   private authService = inject(AuthService);
   private router = inject(Router);
   private _snackBar = inject(MatSnackBar);
+ // Define la propiedad 'data' para recibir los datos pasados al diálogo
+ data: any;
 
+ constructor(@Inject(MAT_DIALOG_DATA) public dialogData: any,public dialogRef: MatDialogRef<LogComponent>,) {
+   // Asigna los datos recibidos a la propiedad 'data'
+   this.data = dialogData;
+ }
   form: FormGroup<LogInForm> = this.formBuilder.group({
     email: this.formBuilder.control('', {
       validators: [Validators.required, Validators.email],
@@ -105,6 +113,8 @@ export class LogComponent implements OnInit {
       await this.authService.logInWithEmailAndPassword(credential);
       //const snackBarRef = this.openSnackBar();
       this.openSnackBar('Inicio de sesión exitoso 😀', 'Cerrar');
+      this.dialogRef.close(); // Cierra el diálogo después del inicio de sesión exitoso
+     // this.router.navigateByUrl('/');
       /*snackBarRef.afterDismissed().subscribe(() => {
         this.router.navigateByUrl('/');
       });*/
