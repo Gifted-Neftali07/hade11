@@ -51,7 +51,8 @@ export class ClientesService {
       correo: '',
       precio: 0,
       tipoVehiculo: '',
-      anio: 0
+      anio: 0,
+      marca: '',
     };
   }
 }

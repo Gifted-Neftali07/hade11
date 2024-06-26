@@ -28,7 +28,30 @@
         <li class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">
           <a class="nav-link" routerLink="/preguntas">PREGUNTAS</a>
         </li>
+        <li class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">
+          <a class="nav-link" routerLink="/preguntas">PREGUNTAS</a>
+        </li>
       </ul>
+
+  <!-- Dropdown de accesibilidad -->
+  <ng-container *ngIf="(currentUser$ | async)?.cuenta === 'Hade admin'">
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="accessibilityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fas fa-universal-access"></i>
+    </a>
+    
+    <ul class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+     
+      <li>
+        <button class="dropdown-item" type="button" [routerLink]="['/listado-clientes']">Citas</button>
+      </li>
+      <li>
+        <button class="dropdown-item" type="button" >Graficas</button>
+      </li>
+    </ul>
+    </div>
+    </ng-container>
+
 
       <!-- Dropdown de accesibilidad -->
       <div class="nav-item dropdown">
@@ -65,7 +88,7 @@
           <ng-container *ngIf="(isLoggedIn$ | async)">
             <ng-container *ngIf="(currentUser$ | async) as user">
               <span class="navbar-text me-2" *ngIf="user.cuenta">
-                Cuenta: {{ user.cuenta }}
+                Cuenta: {{ user. DireccionCorreo }}
               </span>
             </ng-container>
             <button class="btn btn-outline-danger" (click)="logOut()">Cerrar sesión</button>

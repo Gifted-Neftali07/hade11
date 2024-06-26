@@ -8,7 +8,7 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 import { ReservarComponent } from './reservar/reservar.component';
 import { PreguntasComponent } from './preguntas/preguntas.component';
 import { HomeComponent } from './home/home.component';
-import { AltaClienteComponent } from './clientes/alta-cliente/alta-cliente.component';
+
 import { ListadoClientesComponent } from './clientes/listado-clientes/listado-clientes.component';
 import { ListadoDesClientesComponent } from './clientes/listado-des-clientes/listado-des-clientes.component';
 import { MasonryGalleryComponent } from './masonry-gallery/masonry-gallery.component';
@@ -29,7 +29,7 @@ export const routes: Routes = [
     {path: 'reserva/:id',canActivate: [authGuard], component: ReservarComponent},
     {path: 'preguntas', component: PreguntasComponent},
     {path: 'home', component: HomeComponent},
-    {path: 'alta-cliente', component: AltaClienteComponent},
+    
     {path: 'listado-clientes', component: ListadoClientesComponent},
     {path: 'listado-des-clientes', component: ListadoDesClientesComponent},
     {path: 'masonry-gallery', component: MasonryGalleryComponent},
@@ -37,6 +37,7 @@ export const routes: Routes = [
     {path: 'log', canActivate: [publicGuard],component:LogComponent},
     {path: 'sig',canActivate: [publicGuard],component: SigComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'home'},
+   
     {
         path: '',
         canActivate: [authGuard],component: ReservarComponent

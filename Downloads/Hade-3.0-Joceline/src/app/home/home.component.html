@@ -20,8 +20,22 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+ 
+  <div style="display: flex; margin: 15%">
+    <div class="container containerr">
+      <div class="card cardd">
+        <h3>Cupon!!</h3>
+        <div *ngIf="visibleQR">
+          <qrcode [qrdata]="value" cssClass="aclass"></qrcode>
+        </div>
+        <div class="card-body">
+          <button (click)="generarQr()">Generar QR</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
-  
+
   <div class="container mt-5">
     <div class="row">
       <!-- Título de la imagen -->

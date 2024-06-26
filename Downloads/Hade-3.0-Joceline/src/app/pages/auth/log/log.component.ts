@@ -120,7 +120,7 @@ export class LogComponent implements OnInit {
       });*/
     } catch (error) {
        // Manejar el error de contraseña incorrecta
-    this.openSnackBar('La contraseña es incorrecta', 'Cerrar');
+    this.openSnackBar('La contraseña es incorrecta o el correo es incorrecto', 'Cerrar');
       console.error(error);
     }
   }

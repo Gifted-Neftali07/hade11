@@ -21,7 +21,7 @@
             <!--Lo nuevo-->
              <!-- <app-alta-cliente></app-alta-cliente>-->
              <div class="container">
-                <form >
+                <form (ngSubmit)="nuevoCliente()" #clienteForm="ngForm">
                     <div class="form-group">
                         <label for="fechaCompra">Fecha de Renta:</label>
                         <input type="date" id="fechaCompra" name="fechaCompra" class="form-control" [(ngModel)]="cliente.fechaCompra" required>
@@ -69,17 +69,18 @@
                         <option value="20:00">8:00 PM</option>
                       </select>
                     </div>
-                    
+                   
                       
                     <div class="form-group">
                       <label for="nombre">Nombre:</label>
-                      <input type="text" id="nombre" name="nombre" class="form-control" [(ngModel)]="cliente.nombre" required>
+                      <input type="text" id="nombre" name="nombre" class="form-control" [(ngModel)]="cliente.nombre" readonly required>
                     </div>
                     
                     <div class="form-group">
                       <label for="correo">Correo:</label>
-                      <input type="email" id="correo" name="correo" class="form-control" [(ngModel)]="cliente.correo" required>
+                      <input type="email" id="correo" name="correo" class="form-control" [(ngModel)]="cliente.correo" readonly required>
                     </div>
+                    
                     
                     <div class="form-group">
                       <label for="precio">Precio por dia:</label>
@@ -96,10 +97,11 @@
                       <input type="text" id="anio" name="anio" class="form-control" [(ngModel)]="vehiculo.ano" readonly required>
                     </div>
                    <br> 
-                    <button type="button" class="btn btn-primary" (click)="this.nuevoCliente()">Guardar</button>
+                   <button type="submit" class="btn btn-primary" [disabled]="!clienteForm.form.valid">Guardar</button>
+
                   </form>
                  <!-- <a class="madimi-one-regular" class="btn btn-info" [routerLink]="['/listado-clientes']">citas anteriores</a>-->
-                 <a class="madimi-one-regular" [routerLink]="['/listado-clientes']">Citas anteriores</a>
+               <!--  <a class="madimi-one-regular" [routerLink]="['/listado-clientes']">Citas anteriores</a>-->
                  
                  <a class="madimi-one-regular" [routerLink]="['/listado-des-clientes']">Citas por cumplir</a>
                 </div>

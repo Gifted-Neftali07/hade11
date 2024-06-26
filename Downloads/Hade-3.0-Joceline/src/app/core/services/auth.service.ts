@@ -12,7 +12,8 @@ import {
   signOut,
   RecaptchaVerifier,
   signInWithPhoneNumber,
-  ConfirmationResult
+  ConfirmationResult,
+  User
 } from '@angular/fire/auth';
 import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -41,6 +42,31 @@ export class AuthService {
   private http = inject(HttpClient);
   readonly authState$ = authState(this.auth);
   readonly isLoggedIn$ = this.loggedIn.asObservable();
+  constructor( private angularFireAuth: Auth) {
+  
+    this.currentUser2 = new BehaviorSubject<User | null>(null);
+    
+  }
+
+  private currentUser2: BehaviorSubject<User | null>;
+
+  getCurrentUser2(uid: string): Promise<any> {
+    return this.http.get(`${this.apiUrl}/users/${uid}`)
+      .toPromise()
+      .then((userData: any) => {
+        this.currentUser2.next(userData);
+        return userData;
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        throw error;
+      });
+  }
+
+  getUser(): BehaviorSubject<User | null> {
+    return this.currentUser2;
+  }
+
 
   async signUpWithEmailAndPassword(userData: UserData): Promise<UserCredential> {
     try {

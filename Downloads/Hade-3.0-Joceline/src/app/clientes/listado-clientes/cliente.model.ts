@@ -8,6 +8,6 @@ export interface Cliente{
     precio: number,
     tipoVehiculo: string,
     anio: number,
-
-    
+    marca: string,
+    id?: string,
 }
