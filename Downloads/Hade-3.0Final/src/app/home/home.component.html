@@ -1,0 +1,143 @@
+<div class="body">
+  <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel"> <!-- Agrega data-bs-ride="carousel" para hacerlo automático -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/449205757_122093886818386649_1652345711078414530_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=taOd5W2VWhMQ7kNvgFvnyfD&_nc_ht=scontent-hou1-1.xx&oh=00_AYBdt2wpddCAquzfdSJmJw9w20xb-zorzl-F35Y7reEjLg&oe=66816ECD" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/449163575_122093886836386649_7507172117041578998_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=AgaYi_2mLioQ7kNvgE3MHQs&_nc_ht=scontent-hou1-1.xx&oh=00_AYAJmpKD2cwsWBjeQF1HWwVOOPLXwLZAwl18RsiU5n78cA&oe=66818782" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/449168937_122093886872386649_5053871367627271870_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=XGwZqoMByrAQ7kNvgEiQ5JI&_nc_ht=scontent-hou1-1.xx&oh=00_AYCjwUh1voQZwOBWMf6To0nCxx3iZ7QuzVsFfksgy_MWDw&oe=6681997D" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+ 
+  <div style="display: flex; margin: 15%">
+    <div class="container containerr">
+      <div class="card cardd">
+        <h3>Cupon!!</h3>
+        <div *ngIf="visibleQR">
+          <qrcode [qrdata]="value" cssClass="aclass"></qrcode>
+        </div>
+        <div class="card-body">
+          <button (click)="generarQr()">Generar QR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container mt-5">
+    <div class="row">
+      <!-- Título de la imagen -->
+      <div class="col">
+      </div>
+    </div>
+    <!-- Contenido -->
+    <div class="row">
+      <!-- Columna izquierda para el texto -->
+      <div class="col-md-6 order-md-1 order-2">
+        <h2>Compañía orgullosamente<strong> Mexicana </strong></h2>
+        <p>Empresa Mexicana líder en el ramo de renta de autos, ofreciendo una de las mejores opciones de servicio, atención, calidad y precio. Con más de 32 años de experiencia, somos la empresa regional número uno en la actividad de renta de autos con y sin chofer. Contamos con personal calificado, atención personalizada, autos último modelo y tarifas flexibles para nuestros clientes.</p>
+        <img class="three-cars" style="margin-left: 0px;" src="../assets/autos.png" width="600" alt="">
+      </div>
+      <!-- Columna derecha para el video -->
+      <div class="col-md-6 order-md-2 order-1">
+        <div class="embed-responsive embed-responsive-16by9">
+          <div style="position: relative; width: 100%; padding-bottom: 56.25%; /* Proporción 16:9 */">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" width="690" height="355" src="https://www.youtube.com/embed/ARc5eZuBK2g?si=m6ZAIgOSax1uAegd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+         <!-- <video width="610" class="embed-responsive-item" controls>
+            <source src="{{videoUrl}}" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+          </video>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="container mt-5">
+      <!-- Divs de Bootstrap iconos y texto -->
+      <div class="row mt-3">
+        <div class="col-md-3">
+          <div class="card text-center">
+            <i class="fas fa-headset fa-3x mt-3"></i>
+            <div class="card-body">
+              <p class="card-text"><strong>Servicio a Clientes 24/7</strong><br>Contáctenos a Cualquier Hora</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <i class="fas fa-calendar-check fa-3x mt-3"></i>
+            <div class="card-body">
+              <p class="card-text"><strong>Reservaciones en Línea 24/7</strong><br>Sin Cargos Ocultos</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <i class="fas fa-building fa-3x mt-3"></i>
+            <div class="card-body">
+              <p class="card-text"><strong>Servicios Empresariales</strong><br>Garantizados Todo el Año</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card text-center">
+            <i class="fas fa-map-marker-alt fa-3x mt-3"></i>
+            <div class="card-body">
+              <p class="card-text"><strong>Nuevas Oficinas</strong><br> En más estados de la república</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container mt-5">
+      <div class="row">
+        <!-- Columna izquierda para el texto -->
+        <div class="col-lg-6">
+          <div class="container-2">
+            <h2 class="text-contener" style="font-size: 2.2rem;">Conozca más de nosotros</h2><br>
+            <h6 class="text-contener" style="font-size: 1.5rem;"><strong>¿Por qué HADE?</strong></h6><br>
+            <h6 class="pha text-contener" style="font-size: 1.1rem;">Sabemos que la diferencia está en los detalles, por eso contamos con personal altamente capacitado y con un gran compromiso en el servicio de calidez, así como una amplia flota de vehículos y servicios adaptados para ustedes.</h6>
+            <ul style="list-style: none; padding-left: 0;">
+              <li style="font-size: 1rem;"><i class="fas fa-check-circle" style="color: green;"></i> Operando desde 1990 y con más de 890,000 clientes.</li>
+              <li style="font-size: 1rem;"><i class="fas fa-check-circle" style="color: green;"></i> Varias marcas & tipos de autos en nuestra flota.</li>
+              <li style="font-size: 1rem;"><i class="fas fa-check-circle" style="color: green;"></i> Somos la arrendadora regional más importante.</li>
+            </ul>
+
+           
+            <a routerLink="/acerca" class="btn btn-primary" style="font-size: 1rem;"> <div class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">Conozca más de nosotros</div></a>
+
+          </div>
+        </div>
+        <!-- Columna derecha para la imagen grande -->
+        <div class="col-lg-6 d-lg-flex justify-content-lg-end order-lg-last">
+          <img src="https://renty.ae/cdn-cgi/image/format=auto,fit=contain,width=auto,height=auto,sharpen=0.8/https://renty.ae/uploads/car/photo/l/blue_rolls-royce-wraith_2019_5533_main_5cd4595fc6152a2bb48f1a3f00fc68b5.jpg" alt="Imagen Grande" style="max-width: 100%; max-height: 500px;" class="imagen-full">
+        </div>
+      </div>
+    </div>
+
+    <br>
+  
+      <div class="container-fluid fondo">
+        <h1>RENTA A PRECIOS FLEXIBLES Y SIN CARGOS OCULTOS</h1>
+        <p>¡PAGUE POR LO QUE VE!</p>
+        <p>#MuéveteSinLímites</p>
+        <a [routerLink]="['/masonry-gallery']"  href="#" class="btn btn-primary" style="font-size: 1rem;"> <div class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">Conoce nuestros proximos autos en renta</div></a>
+      </div>
+     
+     
+  
+  </div>
