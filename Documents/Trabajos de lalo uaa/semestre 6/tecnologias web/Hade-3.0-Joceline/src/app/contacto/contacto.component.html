@@ -1,0 +1,83 @@
+<header class="encabezado">
+  <div class="texto-encabezado">
+    <h1 style="letter-spacing: 10px; margin-top: 40px;">PÓNGASE EN <strong style="color:rgb(10, 63, 107);">CONTACTO</strong></h1>
+  </div>
+</header>
+
+<div class="container mt-5">
+  <div class="row">
+   
+    <div class="col-lg-6"> 
+      <div class="row"> 
+        <div class="col-12">
+          <h3>NUESTRAS OFICINAS DE CONTACTO</h3>
+          <h2>Visítanos</h2>
+          <p>¡Ven a vernos en persona!</p>
+          <p><strong>Dirección:</strong> Av. Aguascalientes Pte., La España, 20210 Aguascalientes, Ags.</p>
+          <p><strong>Teléfono:</strong> +52 (449) 234-7314</p>
+          <p><strong>Horario:</strong> Lunes a Viernes: 8am - 2pm &nbsp; y &nbsp; 4pm - 8pm &nbsp;&nbsp; Sábado: 10am - 2pm </p>
+        </div>
+      </div>
+    
+      <div class="row">
+        <div class="col-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.9042503304486!2d-102.32126201114502!3d21.861228699999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ec246cf3bf29%3A0x30c5f36889d0eab7!2sRenta%20Autos%20de%20Lujo!5e0!3m2!1ses-419!2smx!4v1713677806801!5m2!1ses-419!2smx" width="500" height="375" style="border-radius: 25px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <div style="border-style: solid; border-color: black; border-radius: 20px; " class="col-lg-6">
+      
+      <h2>Contáctanos para más información</h2>
+      <p>¡Estamos encantados de ayudarte! Ponte en contacto con nosotros a través del formulario a continuación:</p>
+
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" class="form-control" formControlName="nombre">
+        <div *ngIf="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched" 
+             class="text-danger">
+          El nombre es obligatorio.
+        </div><br>
+      
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" class="form-control" 
+             [ngClass]="{'is-invalid': contactForm.get('correo')?.invalid && contactForm.get('correo')?.touched}"
+             formControlName="correo">
+      
+        <div *ngIf="contactForm.get('correo')?.invalid && contactForm.get('correo')?.touched" 
+             class="text-danger">
+          <div *ngIf="contactForm.get('correo')?.errors?.['required']">
+            El correo electrónico es obligatorio.
+          </div>
+          <div *ngIf="contactForm.get('correo')?.errors?.['email']">
+            Ingrese un correo electrónico válido.
+          </div>
+        </div><br>
+      
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" class="form-control" formControlName="asunto">
+        <div *ngIf="contactForm.get('asunto')?.invalid && contactForm.get('asunto')?.touched" 
+             class="text-danger">
+          El asunto es obligatorio.
+        </div><br>
+        
+        <label for="mensaje">Mensaje:</label>
+        <textarea class="form-control" id="mensaje" cols="40" rows="4" formControlName="mensaje"></textarea>
+        <div *ngIf="contactForm.get('mensaje')?.invalid && contactForm.get('mensaje')?.touched" 
+             class="text-danger">
+          El mensaje es obligatorio.
+        </div><br>
+      
+        <div class="text-center p-2">
+          <button class="btn btn-outline-danger" type="submit" [disabled]="contactForm.invalid">Enviar</button>
+        </div>
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container mt-5">
+  </div>
+  
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
