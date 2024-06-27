@@ -33,7 +33,7 @@ export interface UserData extends Credential {
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000'; // Ajusta esto según tu configuración
+  private apiUrl = 'https://nodejs-firebase-example-master.vercel.app'; // Ajusta esto según tu configuración
   
   private auth: Auth = inject(Auth);
   private reCaptchaVerifier: RecaptchaVerifier | undefined;
@@ -91,6 +91,7 @@ export class AuthService {
    //   await this.send({})
       
       this.loggedIn.next(true);
+      await this.getCurrentUser(); 
       return userCredential;
     } catch (error: any) {
       if (error.code === 'auth/email-already-in-use') {
@@ -101,7 +102,7 @@ export class AuthService {
   }
   ////Manda los datos al endpoit post
   private sendUserDataToServer(userData: any): Promise<any> {
-    return this.http.post('http://localhost:3000/register', userData)
+    return this.http.post('https://nodejs-firebase-example-master.vercel.app/register', userData)
       .toPromise()
       .then(response => {
         // Log para verificar la respuesta del servidor

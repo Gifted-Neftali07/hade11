@@ -17,7 +17,7 @@
                         <th scope="col">A pagar</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Año del automóvil</th>
-                        
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,10 +32,8 @@
                             <td>{{cliente.precio}}</td>
                             <td>{{cliente.tipoVehiculo}}</td>
                             <td>{{cliente.anio}}</td>
-                            <td>
-                               
-                               
-                            </td>
+                            <button (click)="deleteCliente(cliente.id || '')" class="btn btn-sm btn-danger">Eliminar</button>
+
                         </tr>
                     }
                 </tbody>

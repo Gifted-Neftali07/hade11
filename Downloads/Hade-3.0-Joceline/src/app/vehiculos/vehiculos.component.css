@@ -5,7 +5,9 @@
   padding: 20px;
   height: 350px;
 }
-
+.min-parraph{
+  font-size: 18px !important;
+}
 .table-striped tbody tr:hover {
   background-color: #007bff; /* Cambia el color de fondo al pasar el mouse */
   color: #fff; /* Cambia el color del texto al pasar el mouse */
@@ -17,9 +19,12 @@ td{
   width: 100%; /* Hace que el botón ocupe todo el ancho del contenedor */
   margin-top: 10px; /* Agrega espacio encima del botón */
 }
+
+
 .btn-outline-primary {
   border-color: #007bff;
   color: #007bff;
+  margin-top: 1px; /* Ajusta este valor según necesites */
 }
 
 .btn-outline-primary:hover {
@@ -55,7 +60,8 @@ td{
     font-size: 1.5rem; /* Reduce el tamaño del título */
     letter-spacing: 5px; /* Ajusta el espaciado entre letras */
     margin-bottom: 10px; /* Ajusta el margen inferior */
-    margin-top: 20px !important; /* Ajusta el margen superior */
+    margin-top: 10px !important; /* Ajusta el margen superior */
+    line-height: 1.5 !important
   }
   
   p {
@@ -170,4 +176,28 @@ td{
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     padding: 60px; /* Agrega espacio alrededor del texto para que no esté pegado a los bordes */
     background-size: contain; /* Ajusta el tamaño de la imagen para que quepa completamente dentro del contenedor */
+}
+
+/*lo nuevo*/
+.card-img-top {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img-top::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110%; /* Ajusta esto para cambiar qué tanto de la curva se muestra */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%230099ff' fill-opacity='0.1' d='M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center top;
+  z-index: 1;
+}
+
+.card-img-top img {
+  position: relative;
+  z-index: 2;
 }

@@ -1,13 +1,17 @@
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="#">
-        <img src="https://scontent.fagu3-1.fna.fbcdn.net/v/t39.30808-6/448287036_122178310796035530_4208982018311952363_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=K6uCbOumctcQ7kNvgFvDskW&_nc_ht=scontent.fagu3-1.fna&oh=00_AYDV-Wo_MlrA5RgEwygxFFIIH1mIbdpnTMkpnxP4z0CzXQ&oe=66726236" style="width: 100px;" alt="Logo">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">
+      <img src="https://scontent-hou1-1.xx.fbcdn.net/v/t39.30808-6/449145649_122093886086386649_7599191908463888967_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=qOAYUMaqYwMQ7kNvgHVxJV8&_nc_ht=scontent-hou1-1.xx&oh=00_AYDWc28ZkU6G6YANycgVNmgNGifalgtvVbGEOEj4BVC_jg&oe=668177DA" style="width: 100px;" alt="Logo">
+    </a>
+
+    <!-- Navbar Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">
@@ -28,38 +32,38 @@
         <li class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">
           <a class="nav-link" routerLink="/preguntas">PREGUNTAS</a>
         </li>
-        <li class="nav-item" [ngClass]="{ 'highlighted': areLinksHighlighted() }">
-          <a class="nav-link" routerLink="/preguntas">PREGUNTAS</a>
-        </li>
       </ul>
 
-  <!-- Dropdown de accesibilidad -->
-  <ng-container *ngIf="(currentUser$ | async)?.cuenta === 'Hade admin'">
-  <div class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="accessibilityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-      <i class="fas fa-universal-access"></i>
-    </a>
-    
-    <ul class="dropdown-menu" aria-labelledby="accessibilityDropdown">
-     
-      <li>
-        <button class="dropdown-item" type="button" [routerLink]="['/listado-clientes']">Citas</button>
-      </li>
-      <li>
-        <button class="dropdown-item" type="button" >Graficas</button>
-      </li>
-    </ul>
-    </div>
-    </ng-container>
-
-
       <!-- Dropdown de accesibilidad -->
+      <ng-container *ngIf="(currentUser$ | async)?.cuenta === 'Hade admin'">
+        <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="accessibilityDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-universal-access"></i>
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+            <li>
+              <button class="dropdown-item" type="button" [routerLink]="['/listado-clientes']">Citas</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button">Gráficas</button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button" [routerLink]="['/pipe']">Próximas actualizaciones</button>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+
+      <!-- Dropdown de accesibilidad general -->
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="accessibilityDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="accessibilityDropdownGeneral" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-universal-access"></i>
         </a>
-        
-        <ul class="dropdown-menu" aria-labelledby="accessibilityDropdown">
+
+        <ul class="dropdown-menu" aria-labelledby="accessibilityDropdownGeneral">
           <li>
             <button class="dropdown-item" type="button" (click)="toggleAccessibilityOptions()">Resaltar enlaces</button>
           </li>
@@ -75,32 +79,29 @@
             </button>
           </li>
         </ul>
-        </div>
-        <form class="navbar-form my-2 my-lg-0 ms-lg-2">
-            <input class="form-control navbar-search-input" type="search" placeholder="Buscar" #buscarTexto>
-            <button class="btn btn-outline-success my-2 my-sm-0 navbar-search-button" type="button" (click)="buscarUnVehiculo(buscarTexto.value)">Buscador</button>
-          </form>
-          <ng-container *ngIf="!(isLoggedIn$ | async)">
-            <button class="btn btn-outline-secondary ms-2" (click)="openLoginDialog()">Log in</button>
-            <button class="btn btn-outline-primary ms-2" (click)="signUp()">Sign up</button>
-          </ng-container>
-          
-          <ng-container *ngIf="(isLoggedIn$ | async)">
-            <ng-container *ngIf="(currentUser$ | async) as user">
-              <span class="navbar-text me-2" *ngIf="user.cuenta">
-                Cuenta: {{ user. DireccionCorreo }}
-              </span>
-            </ng-container>
-            <button class="btn btn-outline-danger" (click)="logOut()">Cerrar sesión</button>
-          </ng-container>
-          
-          
-          
-          
-          
-
-          
       </div>
+
+      <!-- Formulario de búsqueda -->
+      <form class="d-flex">
+        <input class="form-control me-2 navbar-search-input" type="search" placeholder="Buscar" #buscarTexto>
+        <button class="btn btn-outline-success navbar-search-button" type="button"
+          (click)="buscarUnVehiculo(buscarTexto.value)">Buscar</button>
+      </form>
+
+      <!-- Botones de autenticación -->
+      <ng-container *ngIf="!(isLoggedIn$ | async)">
+        <button class="btn btn-outline-secondary ms-2" (click)="openLoginDialog()">Log in</button>
+        <button class="btn btn-outline-primary ms-2" (click)="signUp()">Sign up</button>
+      </ng-container>
+
+      <ng-container *ngIf="(isLoggedIn$ | async)">
+        <ng-container *ngIf="(currentUser$ | async) as user">
+          <span class="navbar-text me-2">
+            Cuenta: {{ user.DireccionCorreo }}
+          </span>
+        </ng-container>
+        <button class="btn btn-outline-danger" (click)="logOut()">Cerrar sesión</button>
+      </ng-container>
     </div>
-  </nav>
-  
+  </div>
+</nav>

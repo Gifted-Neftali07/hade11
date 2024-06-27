@@ -1,8 +1,12 @@
 <div class="body">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="display:none;">
+    <path fill="#0099ff" fill-opacity="0.1" d="M0,160L48,176C96,192,192,224,288,224C384,224,480,192,576,165.3C672,139,768,117,864,128C960,139,1056,181,1152,197.3C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+  </svg>
+  
   <header class="encabezado">
   <div class="texto-encabezado">
-    <h1 style="color:rgb(10, 63, 107); letter-spacing: 10px; margin-top: 40px;">NUESTRA FLOTA<strong style="color: white;"> DE AUTOS</strong></h1>
-    <p>Explora nuestra selección de vehículos nuevos y usados.</p>
+    <h1 style="color:rgb(10, 63, 107); letter-spacing: 10px; margin-top: 40px;"><strong> NUESTRA FLOTA</strong><strong style="color: white;"> DE AUTOS</strong></h1>
+    <p class="min-parraph">Explora nuestra selección de vehículos nuevos y usados.</p>
   </div>
 </header>
 <!--
@@ -12,12 +16,10 @@
   <div class="grid-item grid-item--height2"></div>
   ...
 </div>-->
-
-
 <br>
   <div class="container position-relative text-center">
     <div class="position-absolute top-50 start-50 translate-middle">
-      <h2 style="color: black !important;" class="text-white">Obtenga los <strong>Mejores Precios</strong></h2>
+      <h2 style="color: black !important; margin-top: 26px !important;" class="text-white">Obtenga los <strong>Mejores Precios</strong></h2>
     </div>
   </div>
   <div class="text-center">
@@ -27,7 +29,7 @@
       
 <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
   <mat-button-toggle value="red" type="button"  [ngClass]="{'active': tipoFiltro === 'todos'}" (click)="filtrarTipo('todos')">Todos</mat-button-toggle>
-  <mat-button-toggle value="green" type="button"  [ngClass]="{'active': tipoFiltro === 'economico'}" (click)="filtrarTipo('economico')">Economico</mat-button-toggle>
+  <mat-button-toggle value="green" type="button"  [ngClass]="{'active': tipoFiltro === 'economico'}" (click)="filtrarTipo('economico')">Económico</mat-button-toggle>
   <mat-button-toggle value="blue" type="button"  [ngClass]="{'active': tipoFiltro === 'intermedio'}" (click)="filtrarTipo('intermedio')">Intermedio</mat-button-toggle>
   <mat-button-toggle value="gray" type="button"  [ngClass]="{'active': tipoFiltro === 'premium'}" (click)="filtrarTipo('premium')">Premium</mat-button-toggle>
   
@@ -61,7 +63,8 @@
     @for (h of vehiculosOrdenados; track h; let i = $index) {
       <div class="col">
         <div class="card h-100 border-light mb-3">
-          <img src="{{h.imagen}}" class="card-img-top" alt="Imagen del vehículo">
+          <div class="card-img-top">
+          <img src="{{h.imagen}}" class="card-img-top" alt="Imagen del vehículo"></div>
           <div class="card-body bg-light">
             <h5 class="card-title"><strong>{{h.marca}}</strong></h5>
             <p class="card-text"><strong>{{h.tipo}}</strong></p>
@@ -76,7 +79,9 @@
                 </tr>
               </tbody>
             </table>
-            <button [routerLink]="['/vehiculo', i]" class="btn btn-outline-primary">Ver más</button> <br><br>
+        
+            <button [routerLink]="['/vehiculo', i]" class="btn btn-outline-primary">Más detalles del vehículo</button> <br><br>
+    
             <button [routerLink]="['/reserva', i]" class="btn btn-success btn-reserva">Reserva</button>
           </div>
         </div>

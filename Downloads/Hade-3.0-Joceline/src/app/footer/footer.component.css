@@ -1,24 +1,32 @@
 footer{
   padding: 15px;
   overflow-x: hidden !important;
-  overflow-y: auto;     
-  
+  overflow-y: auto;    
+  background-color:  #f8f9fa;
 }
 
 .fab{
   font-size: 50px !important;
   margin-left: 29px !important;
 }
+
 a{
 text-decoration: none;
 color: inherit; 
 font-weight: bold;
 }
+a:hover{
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 2px;
+}
+
 .Red-social{
 font-size: 20px;
 color: #007bff;
 font-weight: bold;
 }
+
 .redes-sociales i {
   font-size: 24px;
   margin-right: 20px;
@@ -57,6 +65,12 @@ text-align: center; /* Centra horizontalmente el contenido */
 margin-bottom: 20px; /* Agrega un espacio en la parte inferior del logotipo */
 }
 
+p{
+  font-size: 16px;
+}
+h5{
+  font-size: 24px;
+}
  
 /*==========LO NUEVO===========*/
   

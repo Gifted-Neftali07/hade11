@@ -1,0 +1,31 @@
+<nav>
+    <p>Hoy es {{fechaActual | date}}</p>
+    <p>Hora local: {{fechaActual | date: 'h:mm a'}}</p>
+    <p>Recuerda: "{{citaInspiradora}}"</p>
+  </nav>
+
+  <div class="content">
+    <h3>Actualizaciones que llegarán al sistema</h3>
+
+    <h3>Equipamiento de Seguridad</h3>
+    <ul>
+      <li *ngFor="let item of vehiculo.equipamientoSeguridad">{{ item }}</li>
+    </ul>
+    <h3>Confort</h3>
+    <ul>
+      <li *ngFor="let item of vehiculo.confort">{{ item }}</li>
+    </ul>
+    <h3>Tecnología</h3>
+    <ul>
+      <li *ngFor="let item of vehiculo.tecnologia">{{ item }}</li>
+    </ul>
+    <h3>Extras</h3>
+    <ul>
+      <li *ngFor="let item of vehiculo.extras">{{ item }}</li>
+    </ul>
+    <h3>Requisitos para Rentar</h3>
+    <p>Edad Mínima: {{ vehiculo.requisitos.edadMinima }}</p>
+    <p>Licencia: {{ vehiculo.requisitos.licencia }}</p>
+    <p>Tarjeta de Crédito: {{ vehiculo.requisitos.tarjetaCredito ? 'Requerida' : 'No Requerida' }}</p>
+  </div>
+  <br>

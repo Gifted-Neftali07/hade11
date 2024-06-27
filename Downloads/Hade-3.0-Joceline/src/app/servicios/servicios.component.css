@@ -10,10 +10,26 @@
   text-align: center;
   color: white; /* Color del texto */
   padding-top: 50px; /* Espacio superior para el texto */
+  
 }
 .card {
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
 }
+.min-parraph{
+  font-size: 18px;
+}
+p{
+  font-size: 15px;
+}
+
+td{
+  font-size: 16px;
+}
+.text{
+  vertical-align: middle;
+  text-align: center;
+}
+h1{  font-size: 36px;}
 
 .card:hover {
   transform: translateY(-10px);
@@ -39,6 +55,10 @@
 
 /* Estilos CSS para las secciones en dispositivos móviles */
 @media (max-width: 768px) {
+  .text{
+    vertical-align: middle;
+    text-align: center;
+  }
 .three-icons {
   padding: 2px;
 }
@@ -81,6 +101,8 @@ animation: resaltar 0.5s alternate infinite !important;
 
 /* Estilos CSS para la tabla en dispositivos móviles */
 @media (max-width: 768px) {
+
+
 .text-table-top{
   margin-bottom: 1px !important; /* Mueve el div hacia abajo */
   margin-top: -35px;
@@ -137,3 +159,4 @@ text-align: center;
 .textoTabla {
 text-align: left;
 }
+

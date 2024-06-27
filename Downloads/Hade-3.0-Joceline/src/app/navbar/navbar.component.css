@@ -1,72 +1,131 @@
- /* Estilos para el logo y el nombre */
- .navbar-brand img {
-    width: 40px; /* Ajustar según el tamaño del logo */
-    margin-right: 10px;
+/* Estilos para el logo y el nombre */
+.navbar-brand img {
+  width: 100px; /* Ajusta el tamaño del logo según tus necesidades */
+  margin-right: 10px; /* Espacio entre el logo y otros elementos */
 }
+
 .navbar-brand p {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333; /* Color del texto */
-    margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* Color del texto */
+  margin: 0;
 }
+
 /* Estilos para los enlaces de navegación */
 .navbar-nav a {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333; /* Color del texto */
-    margin-right: 20px;
-    text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333; /* Color del texto */
+  margin-right: 15px; /* Espacio entre los enlaces */
+  text-decoration: none;
 }
+
 .navbar-nav a:hover {
-    color: #007bff; /* Color al pasar el mouse */
+  color: #007bff; /* Color al pasar el mouse */
 }
 
 /* Estilos CSS para el formulario de búsqueda */
 .navbar-form {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-search-input {
+  flex: 1; /* El campo de búsqueda se expandirá para ocupar todo el espacio disponible */
+  margin-right: 10px; /* Espaciado entre el campo de búsqueda y el botón */
+}
+
+
+.navbar-search-button {
+  min-width: 100px; /* Ancho mínimo del botón de búsqueda */
+}
+
+/* Estilos para el dropdown de accesibilidad */
+#accessibilityDropdown {
+  font-size: 24px; /* Tamaño del ícono */
+  color: #333; /* Color del ícono */
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  margin: 0;
+}
+
+/* Estilos para resaltar */
+.highlighted {
+  background-color: yellow; /* Fondo amarillo para resaltar */
+  color: black !important; /* Texto negro */
+  font-weight: bold; /* Texto en negrita */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .auth-buttons {
     display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-  
-  .navbar-search-input {
-    flex: 1; /* El campo de búsqueda se expandirá para ocupar todo el espacio disponible */
-    margin-right: 10px; /* Espaciado entre el campo de búsqueda y el botón */
-  }
-  
-  .navbar-search-button {
-    min-width: 100px; /* Ancho mínimo del botón de búsqueda */
-  }
-  
-
-
-  /*==========LO NUEVO===========*/
-  
-  .highlighted{
-    background-color: yellow; /* Cambia este color según tus preferencias */
-    color: black !important;
-    font-weight: bold;
-  }
-  a{
-    color: white;
-  }
-  
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-/* Estilos de escala de grises */
-.gray-scale {
-    filter: grayscale(100%);
+    padding: 10px;
   }
 
-  body{
-    font-family: Arial, sans-serif; /* Establece la fuente predeterminada */
+  .auth-buttons .btn {
+    width: 100%;
+    margin-bottom: 10px;
   }
-  
-  body.dyslexic-font {
-    font-family: 'OpenDyslexic', sans-serif; /* Fuente disléxica */
+
+  .auth-buttons .btn:last-child {
+    margin-bottom: 0;
   }
-  
-#accessibilityDropdown{
+}
+
+@media (min-width: 769px) {
+  .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 10px;
+  }
+
+  .auth-buttons .btn {
+    margin-left: 10px;
+  }
+}
+
+.fa-universal-access{
   font-size: 30px;
-  color: black;
+}
+
+
+
+/* Estilos para el bloque de autenticación y cierre de sesión */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.auth-container .navbar-text {
+  text-align: center;
+  font-size: 13px !important; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  margin-right: 15px; /* Margen derecho */
+}
+
+.auth-container .btn {
+  margin-left: 10px; /* Margen izquierdo */
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 576px) {
+  .auth-container {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .auth-container .btn {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
 }

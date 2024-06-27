@@ -23,7 +23,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class apiService {
-  private apiUrl = 'http://localhost:3000'; // Ajusta esto según tu configuración
+  private apiUrl = 'https://nodejs-firebase-example-master.vercel.app'; // Ajusta esto según tu configuración
   
   private auth: Auth = inject(Auth);
   private reCaptchaVerifier: RecaptchaVerifier | undefined;

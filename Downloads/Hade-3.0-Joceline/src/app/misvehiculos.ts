@@ -21,7 +21,7 @@ export const VEHICULOS: Vehiculos[] = [
     "cantidad_maletas": 2,
     "aire_acondicionado": "A/A",
     "mantenimiento": "Al día",
-    "imagen": "https://cdn.wheel-size.com/automobile/body/kia-stonic-2017-2021-1668147161.4829836.jpg",
+    "imagen": "https://cdn1.leasing.com/izmo/Pix/kia/stonic/1/5suv%203/kia_23stonicblackednsu1fb_lowaggressive.webp?fixar=true&width=1024&height=768",
     "tipo": "Economico",
     "precio": 3450
   },

@@ -43,5 +43,22 @@ export class ListadoDesClientesComponent implements OnInit {
     );
   }
 
-  // ... otros métodos como editCliente y deleteCliente permanecen igual
+  deleteCliente(id: string | undefined) {
+    if (!id) {
+      console.error('ID de cliente no válido');
+      return;
+    }
+
+    if (confirm('¿Estás seguro de que quieres eliminar esta cita?')) {
+      this.clientesService.deleteCliente(id).then(() => {
+        console.log('Cita eliminada con éxito');
+        // Recargar las citas después de eliminar
+        if (this.user && this.user.DireccionCorreo) {
+          this.loadClientesByEmail(this.user.DireccionCorreo);
+        }
+      }).catch(error => {
+        console.error('Error al eliminar la cita:', error);
+      });
+    }
+  }
 }

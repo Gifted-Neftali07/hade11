@@ -18,8 +18,14 @@ import { authGuard, publicGuard } from './core/guards';
 import LogInComponent from './pages/auth/log-in/log-in.component';
 import {LogComponent} from './pages/auth/log/log.component';
 import { SigComponent } from './pages/auth/sig/sig.component';
+import { GraficasComponent } from './graficas/graficas.component';
+import { PipeComponent } from './pipe/pipe.component';
 
 export const routes: Routes = [
+    {path: 'graficas',component:GraficasComponent},
+    {path: 'pipe',component:PipeComponent},
+
+
     {path: 'servicios',canActivate: [authGuard], component:ServiciosComponent},
     {path: 'vehiculos',canActivate: [authGuard],component: VehiculosComponent},
     {path: 'vehiculo/:id', component: UnvehiculoComponent},
